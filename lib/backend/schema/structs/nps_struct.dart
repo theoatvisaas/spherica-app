@@ -1,0 +1,342 @@
+// ignore_for_file: unnecessary_getters_setters
+
+import '/backend/schema/util/schema_util.dart';
+import '/backend/schema/enums/enums.dart';
+
+import 'index.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+
+class NpsStruct extends BaseStruct {
+  NpsStruct({
+    String? id,
+    String? title,
+    String? question,
+    int? note,
+    String? description,
+    String? clientsId,
+    String? storesId,
+    int? createdAt,
+    String? message,
+    String? type,
+    String? npsVariationsId,
+    NpsVariationsStruct? npsVariations,
+  })  : _id = id,
+        _title = title,
+        _question = question,
+        _note = note,
+        _description = description,
+        _clientsId = clientsId,
+        _storesId = storesId,
+        _createdAt = createdAt,
+        _message = message,
+        _type = type,
+        _npsVariationsId = npsVariationsId,
+        _npsVariations = npsVariations;
+
+  // "id" field.
+  String? _id;
+  String get id => _id ?? '';
+  set id(String? val) => _id = val;
+
+  bool hasId() => _id != null;
+
+  // "title" field.
+  String? _title;
+  String get title => _title ?? '';
+  set title(String? val) => _title = val;
+
+  bool hasTitle() => _title != null;
+
+  // "question" field.
+  String? _question;
+  String get question => _question ?? '';
+  set question(String? val) => _question = val;
+
+  bool hasQuestion() => _question != null;
+
+  // "note" field.
+  int? _note;
+  int get note => _note ?? 0;
+  set note(int? val) => _note = val;
+
+  void incrementNote(int amount) => note = note + amount;
+
+  bool hasNote() => _note != null;
+
+  // "description" field.
+  String? _description;
+  String get description => _description ?? '';
+  set description(String? val) => _description = val;
+
+  bool hasDescription() => _description != null;
+
+  // "clients_id" field.
+  String? _clientsId;
+  String get clientsId => _clientsId ?? '';
+  set clientsId(String? val) => _clientsId = val;
+
+  bool hasClientsId() => _clientsId != null;
+
+  // "stores_id" field.
+  String? _storesId;
+  String get storesId => _storesId ?? '';
+  set storesId(String? val) => _storesId = val;
+
+  bool hasStoresId() => _storesId != null;
+
+  // "created_at" field.
+  int? _createdAt;
+  int get createdAt => _createdAt ?? 0;
+  set createdAt(int? val) => _createdAt = val;
+
+  void incrementCreatedAt(int amount) => createdAt = createdAt + amount;
+
+  bool hasCreatedAt() => _createdAt != null;
+
+  // "message" field.
+  String? _message;
+  String get message => _message ?? '';
+  set message(String? val) => _message = val;
+
+  bool hasMessage() => _message != null;
+
+  // "type" field.
+  String? _type;
+  String get type => _type ?? '';
+  set type(String? val) => _type = val;
+
+  bool hasType() => _type != null;
+
+  // "nps_variations_id" field.
+  String? _npsVariationsId;
+  String get npsVariationsId => _npsVariationsId ?? '';
+  set npsVariationsId(String? val) => _npsVariationsId = val;
+
+  bool hasNpsVariationsId() => _npsVariationsId != null;
+
+  // "nps_variations" field.
+  NpsVariationsStruct? _npsVariations;
+  NpsVariationsStruct get npsVariations =>
+      _npsVariations ?? NpsVariationsStruct();
+  set npsVariations(NpsVariationsStruct? val) => _npsVariations = val;
+
+  void updateNpsVariations(Function(NpsVariationsStruct) updateFn) {
+    updateFn(_npsVariations ??= NpsVariationsStruct());
+  }
+
+  bool hasNpsVariations() => _npsVariations != null;
+
+  static NpsStruct fromMap(Map<String, dynamic> data) => NpsStruct(
+        id: data['id'] as String?,
+        title: data['title'] as String?,
+        question: data['question'] as String?,
+        note: castToType<int>(data['note']),
+        description: data['description'] as String?,
+        clientsId: data['clients_id'] as String?,
+        storesId: data['stores_id'] as String?,
+        createdAt: castToType<int>(data['created_at']),
+        message: data['message'] as String?,
+        type: data['type'] as String?,
+        npsVariationsId: data['nps_variations_id'] as String?,
+        npsVariations: NpsVariationsStruct.maybeFromMap(data['nps_variations']),
+      );
+
+  static NpsStruct? maybeFromMap(dynamic data) =>
+      data is Map ? NpsStruct.fromMap(data.cast<String, dynamic>()) : null;
+
+  Map<String, dynamic> toMap() => {
+        'id': _id,
+        'title': _title,
+        'question': _question,
+        'note': _note,
+        'description': _description,
+        'clients_id': _clientsId,
+        'stores_id': _storesId,
+        'created_at': _createdAt,
+        'message': _message,
+        'type': _type,
+        'nps_variations_id': _npsVariationsId,
+        'nps_variations': _npsVariations?.toMap(),
+      }.withoutNulls;
+
+  @override
+  Map<String, dynamic> toSerializableMap() => {
+        'id': serializeParam(
+          _id,
+          ParamType.String,
+        ),
+        'title': serializeParam(
+          _title,
+          ParamType.String,
+        ),
+        'question': serializeParam(
+          _question,
+          ParamType.String,
+        ),
+        'note': serializeParam(
+          _note,
+          ParamType.int,
+        ),
+        'description': serializeParam(
+          _description,
+          ParamType.String,
+        ),
+        'clients_id': serializeParam(
+          _clientsId,
+          ParamType.String,
+        ),
+        'stores_id': serializeParam(
+          _storesId,
+          ParamType.String,
+        ),
+        'created_at': serializeParam(
+          _createdAt,
+          ParamType.int,
+        ),
+        'message': serializeParam(
+          _message,
+          ParamType.String,
+        ),
+        'type': serializeParam(
+          _type,
+          ParamType.String,
+        ),
+        'nps_variations_id': serializeParam(
+          _npsVariationsId,
+          ParamType.String,
+        ),
+        'nps_variations': serializeParam(
+          _npsVariations,
+          ParamType.DataStruct,
+        ),
+      }.withoutNulls;
+
+  static NpsStruct fromSerializableMap(Map<String, dynamic> data) => NpsStruct(
+        id: deserializeParam(
+          data['id'],
+          ParamType.String,
+          false,
+        ),
+        title: deserializeParam(
+          data['title'],
+          ParamType.String,
+          false,
+        ),
+        question: deserializeParam(
+          data['question'],
+          ParamType.String,
+          false,
+        ),
+        note: deserializeParam(
+          data['note'],
+          ParamType.int,
+          false,
+        ),
+        description: deserializeParam(
+          data['description'],
+          ParamType.String,
+          false,
+        ),
+        clientsId: deserializeParam(
+          data['clients_id'],
+          ParamType.String,
+          false,
+        ),
+        storesId: deserializeParam(
+          data['stores_id'],
+          ParamType.String,
+          false,
+        ),
+        createdAt: deserializeParam(
+          data['created_at'],
+          ParamType.int,
+          false,
+        ),
+        message: deserializeParam(
+          data['message'],
+          ParamType.String,
+          false,
+        ),
+        type: deserializeParam(
+          data['type'],
+          ParamType.String,
+          false,
+        ),
+        npsVariationsId: deserializeParam(
+          data['nps_variations_id'],
+          ParamType.String,
+          false,
+        ),
+        npsVariations: deserializeStructParam(
+          data['nps_variations'],
+          ParamType.DataStruct,
+          false,
+          structBuilder: NpsVariationsStruct.fromSerializableMap,
+        ),
+      );
+
+  @override
+  String toString() => 'NpsStruct(${toMap()})';
+
+  @override
+  bool operator ==(Object other) {
+    return other is NpsStruct &&
+        id == other.id &&
+        title == other.title &&
+        question == other.question &&
+        note == other.note &&
+        description == other.description &&
+        clientsId == other.clientsId &&
+        storesId == other.storesId &&
+        createdAt == other.createdAt &&
+        message == other.message &&
+        type == other.type &&
+        npsVariationsId == other.npsVariationsId &&
+        npsVariations == other.npsVariations;
+  }
+
+  @override
+  int get hashCode => const ListEquality().hash([
+        id,
+        title,
+        question,
+        note,
+        description,
+        clientsId,
+        storesId,
+        createdAt,
+        message,
+        type,
+        npsVariationsId,
+        npsVariations
+      ]);
+}
+
+NpsStruct createNpsStruct({
+  String? id,
+  String? title,
+  String? question,
+  int? note,
+  String? description,
+  String? clientsId,
+  String? storesId,
+  int? createdAt,
+  String? message,
+  String? type,
+  String? npsVariationsId,
+  NpsVariationsStruct? npsVariations,
+}) =>
+    NpsStruct(
+      id: id,
+      title: title,
+      question: question,
+      note: note,
+      description: description,
+      clientsId: clientsId,
+      storesId: storesId,
+      createdAt: createdAt,
+      message: message,
+      type: type,
+      npsVariationsId: npsVariationsId,
+      npsVariations: npsVariations ?? NpsVariationsStruct(),
+    );
