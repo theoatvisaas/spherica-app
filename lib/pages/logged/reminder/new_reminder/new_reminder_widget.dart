@@ -11,7 +11,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
-
 import 'new_reminder_model.dart';
 export 'new_reminder_model.dart';
 
@@ -65,13 +64,9 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
-            borderRadius: 30,
-            borderWidth: 1,
-            buttonSize: 56,
             icon: Icon(
               Icons.arrow_back_ios_new_rounded,
               color: FlutterFlowTheme.of(context).primary,
-              size: 20,
             ),
             onPressed: () async {
               context.pop();
@@ -81,21 +76,17 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
             'Novo lembrete',
             style: FlutterFlowTheme.of(context).titleMedium.override(
                   fontFamily: 'Inter',
-                  letterSpacing: 0,
                 ),
           ),
           actions: [],
           centerTitle: true,
-          elevation: 0,
         ),
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: AlignmentDirectional(0, 0),
             child: Container(
               width: double.infinity,
               constraints: BoxConstraints(
-                maxWidth: 670,
               ),
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).primaryBackground,
@@ -109,29 +100,24 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                   children: [
                     Expanded(
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 4),
                                       child: Text(
                                         'Horário',
                                         style: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Inter',
-                                              letterSpacing: 0,
                                             ),
                                       ),
                                     ),
@@ -149,7 +135,6 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                                     .labelLarge
                                                     .override(
                                                       fontFamily: 'Inter',
-                                                      letterSpacing: 0,
                                                     ),
                                             hintText: '00:00',
                                             hintStyle:
@@ -161,37 +146,30 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .accent4,
-                                                      letterSpacing: 0,
                                                     ),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .alternate,
-                                                width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(12),
                                             ),
                                             focusedBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
-                                                width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(12),
                                             ),
                                             errorBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .error,
-                                                width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(12),
                                             ),
                                             focusedErrorBorder:
                                                 OutlineInputBorder(
@@ -199,10 +177,8 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .error,
-                                                width: 1,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(12),
                                             ),
                                             filled: true,
                                             fillColor:
@@ -210,13 +186,11 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                                     .secondaryBackground,
                                             contentPadding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    12, 10, 12, 10),
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyLarge
                                               .override(
                                                 fontFamily: 'Inter',
-                                                letterSpacing: 0,
                                               ),
                                           maxLines: null,
                                           keyboardType: TextInputType.number,
@@ -255,8 +229,6 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                                           .headlineLarge
                                                           .override(
                                                             fontFamily: 'Inter',
-                                                            fontSize: 32,
-                                                            letterSpacing: 0,
                                                             fontWeight:
                                                                 FontWeight.w600,
                                                           ),
@@ -280,7 +252,6 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .primaryText,
-                                                  iconSize: 24,
                                                 );
                                               },
                                             );
@@ -310,21 +281,17 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                           },
                                           child: Container(
                                             width: double.infinity,
-                                            height: 48,
                                             decoration: BoxDecoration(
                                               color: Colors.transparent,
                                             ),
                                             alignment:
-                                                AlignmentDirectional(1, 0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 12, 0),
                                               child: FaIcon(
                                                 FontAwesomeIcons.clock,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .accent4,
-                                                size: 20,
                                               ),
                                             ),
                                           ),
@@ -335,22 +302,18 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 4),
                                       child: Text(
                                         'Título',
                                         style: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Inter',
-                                              letterSpacing: 0,
                                             ),
                                       ),
                                     ),
@@ -364,7 +327,6 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                             .labelLarge
                                             .override(
                                               fontFamily: 'Inter',
-                                              letterSpacing: 0,
                                             ),
                                         hintText: 'Lembrete',
                                         hintStyle: FlutterFlowTheme.of(context)
@@ -374,56 +336,45 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .accent4,
-                                              letterSpacing: 0,
                                             ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
                                                 .alternate,
-                                            width: 1,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(12),
                                         ),
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
-                                            width: 1,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(12),
                                         ),
                                         errorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
                                                 .error,
-                                            width: 1,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(12),
                                         ),
                                         focusedErrorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
                                                 .error,
-                                            width: 1,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(12),
                                         ),
                                         filled: true,
                                         fillColor: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                         contentPadding:
                                             EdgeInsetsDirectional.fromSTEB(
-                                                12, 10, 12, 10),
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
                                             fontFamily: 'Inter',
-                                            letterSpacing: 0,
                                           ),
                                       maxLines: null,
                                       validator: _model
@@ -434,14 +385,11 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                 ),
                               ),
                               Divider(
-                                height: 1,
-                                thickness: 1,
                                 color: Color(0xFFEAECF0),
                               ),
                               if (true == false)
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 12),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -449,7 +397,6 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 0, 0, 4),
                                         child: RichText(
                                           textScaler:
                                               MediaQuery.of(context).textScaler,
@@ -462,7 +409,6 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                                         .labelMedium
                                                         .override(
                                                           fontFamily: 'Inter',
-                                                          letterSpacing: 0,
                                                         ),
                                               ),
                                               TextSpan(
@@ -475,7 +421,6 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .accent4,
-                                                          letterSpacing: 0,
                                                         ),
                                               )
                                             ],
@@ -483,7 +428,6 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Inter',
-                                                  letterSpacing: 0,
                                                 ),
                                           ),
                                         ),
@@ -500,7 +444,6 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                           'Qui',
                                           'Sex'
                                         ],
-                                        height: 48,
                                         textStyle: FlutterFlowTheme.of(context)
                                             .bodyLarge
                                             .override(
@@ -508,25 +451,19 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .accent4,
-                                              letterSpacing: 0,
                                             ),
                                         hintText: 'Nunca',
                                         icon: Icon(
                                           Icons.keyboard_arrow_down_rounded,
                                           color: FlutterFlowTheme.of(context)
                                               .accent4,
-                                          size: 24,
                                         ),
                                         fillColor: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
-                                        elevation: 2,
                                         borderColor:
                                             FlutterFlowTheme.of(context)
                                                 .alternate,
-                                        borderWidth: 1,
-                                        borderRadius: 12,
                                         margin: EdgeInsetsDirectional.fromSTEB(
-                                            12, 0, 12, 0),
                                         hidesUnderline: true,
                                         isOverButton: true,
                                         isSearchable: false,
@@ -539,14 +476,12 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                 ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0, 12, 0, 12),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 4),
                                       child: RichText(
                                         textScaler:
                                             MediaQuery.of(context).textScaler,
@@ -559,7 +494,6 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                                       .labelMedium
                                                       .override(
                                                         fontFamily: 'Inter',
-                                                        letterSpacing: 0,
                                                       ),
                                             ),
                                             TextSpan(
@@ -573,7 +507,6 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .accent4,
-                                                        letterSpacing: 0,
                                                       ),
                                             )
                                           ],
@@ -581,7 +514,6 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Inter',
-                                                letterSpacing: 0,
                                               ),
                                         ),
                                       ),
@@ -606,31 +538,24 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                       ],
                                       onChanged: (val) => setState(
                                           () => _model.reapeatHourValue = val),
-                                      height: 48,
                                       textStyle: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
                                             fontFamily: 'Inter',
                                             color: FlutterFlowTheme.of(context)
                                                 .accent4,
-                                            letterSpacing: 0,
                                           ),
                                       hintText: 'Nunca',
                                       icon: Icon(
                                         Icons.keyboard_arrow_down_rounded,
                                         color: FlutterFlowTheme.of(context)
                                             .accent4,
-                                        size: 24,
                                       ),
                                       fillColor: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
-                                      elevation: 2,
                                       borderColor: FlutterFlowTheme.of(context)
                                           .alternate,
-                                      borderWidth: 1,
-                                      borderRadius: 12,
                                       margin: EdgeInsetsDirectional.fromSTEB(
-                                          12, 0, 12, 0),
                                       hidesUnderline: true,
                                       isOverButton: true,
                                       isSearchable: false,
@@ -640,22 +565,18 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                 ),
                               ),
                               Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 4),
                                       child: Text(
                                         'Uso',
                                         style: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Inter',
-                                              letterSpacing: 0,
                                             ),
                                       ),
                                     ),
@@ -669,7 +590,6 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                             .labelLarge
                                             .override(
                                               fontFamily: 'Inter',
-                                              letterSpacing: 0,
                                             ),
                                         hintText: 'Ex.: 10 gotas',
                                         hintStyle: FlutterFlowTheme.of(context)
@@ -679,56 +599,45 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .accent4,
-                                              letterSpacing: 0,
                                             ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
                                                 .alternate,
-                                            width: 1,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(12),
                                         ),
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
-                                            width: 1,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(12),
                                         ),
                                         errorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
                                                 .error,
-                                            width: 1,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(12),
                                         ),
                                         focusedErrorBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
                                                 .error,
-                                            width: 1,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(12),
                                         ),
                                         filled: true,
                                         fillColor: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                         contentPadding:
                                             EdgeInsetsDirectional.fromSTEB(
-                                                12, 10, 12, 10),
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
                                             fontFamily: 'Inter',
-                                            letterSpacing: 0,
                                           ),
                                       maxLines: null,
                                       validator: _model
@@ -744,40 +653,24 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
                       child: FFButtonWidget(
                         onPressed: () async {
-                         try {
-                            _model.createReminder();
-                            context.pop();
-                         } catch (e) {
-                           
-                         }
                         },
                         text: 'Salvar',
                         options: FFButtonOptions(
                           width: double.infinity,
-                          height: 44,
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                          iconPadding:
-                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Inter',
-                                    letterSpacing: 0,
                                   ),
-                          elevation: 1,
                           borderSide: BorderSide(
                             color: Colors.transparent,
-                            width: 1,
                           ),
-                          borderRadius: BorderRadius.circular(12),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
                       child: FFButtonWidget(
                         onPressed: () async {
                           context.safePop();
@@ -785,10 +678,6 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                         text: 'Cancelar',
                         options: FFButtonOptions(
                           width: double.infinity,
-                          height: 44,
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                          iconPadding:
-                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                           textStyle: FlutterFlowTheme.of(context)
@@ -796,14 +685,10 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
                               .override(
                                 fontFamily: 'Inter',
                                 color: FlutterFlowTheme.of(context).primaryText,
-                                letterSpacing: 0,
                               ),
-                          elevation: 1,
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context).alternate,
-                            width: 1,
                           ),
-                          borderRadius: BorderRadius.circular(12),
                         ),
                         showLoadingIndicator: false,
                       ),
@@ -818,5 +703,3 @@ class _NewReminderWidgetState extends State<NewReminderWidget> {
     );
   }
 }
-
-

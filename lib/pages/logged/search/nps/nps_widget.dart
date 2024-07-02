@@ -36,6 +36,7 @@ class _NpsWidgetState extends State<NpsWidget> {
       _model.npsResponse = await NpsGroup.getNpsCall.call(
         token: currentAuthenticationToken,
         clientsId: currentUserData?.client?.id,
+        clientsId: FFAppState().clientId,
       );
 
       if ((_model.npsResponse?.succeeded ?? true)) {
@@ -189,6 +190,7 @@ class _NpsWidgetState extends State<NpsWidget> {
                                             npsListItem
                                                     .npsVariations.response ==
                                                 '',
+                                        visible: npsListItem.note == 0,
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:

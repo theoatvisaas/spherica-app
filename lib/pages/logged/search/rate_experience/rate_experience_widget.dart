@@ -33,6 +33,8 @@ class _RateExperienceWidgetState extends State<RateExperienceWidget> {
 
     _model.commentTextController ??= TextEditingController(
         text: FFAppState().selectedNps.npsVariations.response);
+    _model.commentTextController ??=
+        TextEditingController(text: FFAppState().selectedNps.message);
     _model.commentFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -237,6 +239,7 @@ class _RateExperienceWidgetState extends State<RateExperienceWidget> {
                                     0.0, 32.0, 0.0, 4.0),
                                 child: Text(
                                   FFAppState().selectedNps.npsVariations.title,
+                                  FFAppState().selectedNps.secondQuestion,
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
@@ -255,6 +258,8 @@ class _RateExperienceWidgetState extends State<RateExperienceWidget> {
                                           .npsVariations
                                           .type ==
                                       'passive'))
+                              if (_model.choiceChipsValue != null &&
+                                  _model.choiceChipsValue != '')
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 4.0, 0.0, 4.0),
@@ -263,6 +268,7 @@ class _RateExperienceWidgetState extends State<RateExperienceWidget> {
                                         .selectedNps
                                         .npsVariations
                                         .description,
+                                    'Com isso podemos entender como melhorar a experiência e nossa base de profissionais',
                                     style: FlutterFlowTheme.of(context)
                                         .labelLarge
                                         .override(
@@ -376,9 +382,13 @@ class _RateExperienceWidgetState extends State<RateExperienceWidget> {
                             clientsId: FFAppState().selectedNps.clientsId,
                             storesId: FFAppState().selectedNps.storesId,
                             message: FFAppState().selectedNps.message,
+                            message: _model.commentTextController.text,
                             type: FFAppState().selectedNps.type,
                             npsVariationsId:
                                 FFAppState().selectedNps.npsVariationsId,
+                            secondQuestion:
+                                FFAppState().selectedNps.secondQuestion,
+                            responseType: 'promoter',
                           );
 
                           if ((_model.apiNoteResponse?.succeeded ?? true)) {
@@ -405,6 +415,12 @@ class _RateExperienceWidgetState extends State<RateExperienceWidget> {
                                     style: TextStyle(
                                       color: FlutterFlowTheme.of(context).info,
                                     ),
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  'Questionário respondido com sucesso!',
+                                  style: TextStyle(
+                                    color: FlutterFlowTheme.of(context).info,
                                   ),
                                   duration: Duration(milliseconds: 4000),
                                   backgroundColor:
@@ -416,6 +432,15 @@ class _RateExperienceWidgetState extends State<RateExperienceWidget> {
                                 token: currentAuthenticationToken,
                                 clientsId: currentUserData?.client?.id,
                               );
+                                duration: Duration(milliseconds: 4000),
+                                backgroundColor:
+                                    FlutterFlowTheme.of(context).success,
+                              ),
+                            );
+                            _model.npsResponse = await NpsGroup.getNpsCall.call(
+                              token: currentAuthenticationToken,
+                              clientsId: currentUserData?.client?.id,
+                            );
 
                               FFAppState().nps = [];
                               setState(() {});
@@ -431,6 +456,20 @@ class _RateExperienceWidgetState extends State<RateExperienceWidget> {
                                   .toList()
                                   .cast<NpsStruct>();
                               setState(() {});
+                            FFAppState().nps = [];
+                            setState(() {});
+                            FFAppState().nps = (getJsonField(
+                              (_model.npsResponse?.jsonBody ?? ''),
+                              r'''$''',
+                              true,
+                            )!
+                                    .toList()
+                                    .map<NpsStruct?>(NpsStruct.maybeFromMap)
+                                    .toList() as Iterable<NpsStruct?>)
+                                .withoutNulls
+                                .toList()
+                                .cast<NpsStruct>();
+                            setState(() {});
 
                               context.pushNamed('Nps');
                             } else {
@@ -448,6 +487,7 @@ class _RateExperienceWidgetState extends State<RateExperienceWidget> {
                                 ),
                               );
                             }
+                            context.pushNamed('Nps');
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(

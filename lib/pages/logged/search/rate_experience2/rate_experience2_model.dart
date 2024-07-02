@@ -42,6 +42,7 @@ class RateExperience2Model extends FlutterFlowModel<RateExperience2Widget> {
   int? noteNumber;
   // Stores action output result for [Backend Call - API (Change Nps Note)] action in Button widget.
   ApiCallResponse? npsNoteResponse;
+  ApiCallResponse? apiNoteResponse;
   // Stores action output result for [Backend Call - API (Get Nps)] action in Button widget.
   ApiCallResponse? npsResponse;
 
