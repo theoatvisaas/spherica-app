@@ -20,6 +20,8 @@ class NpsStruct extends BaseStruct {
     String? type,
     String? npsVariationsId,
     NpsVariationsStruct? npsVariations,
+    String? secondQuestion,
+    String? responseType,
   })  : _id = id,
         _title = title,
         _question = question,
@@ -32,6 +34,8 @@ class NpsStruct extends BaseStruct {
         _type = type,
         _npsVariationsId = npsVariationsId,
         _npsVariations = npsVariations;
+        _secondQuestion = secondQuestion,
+        _responseType = responseType;
 
   // "id" field.
   String? _id;
@@ -119,12 +123,23 @@ class NpsStruct extends BaseStruct {
   NpsVariationsStruct get npsVariations =>
       _npsVariations ?? NpsVariationsStruct();
   set npsVariations(NpsVariationsStruct? val) => _npsVariations = val;
+  // "second_question" field.
+  String? _secondQuestion;
+  String get secondQuestion => _secondQuestion ?? '';
+  set secondQuestion(String? val) => _secondQuestion = val;
 
   void updateNpsVariations(Function(NpsVariationsStruct) updateFn) {
     updateFn(_npsVariations ??= NpsVariationsStruct());
   }
+  bool hasSecondQuestion() => _secondQuestion != null;
+
+  // "response_type" field.
+  String? _responseType;
+  String get responseType => _responseType ?? '';
+  set responseType(String? val) => _responseType = val;
 
   bool hasNpsVariations() => _npsVariations != null;
+  bool hasResponseType() => _responseType != null;
 
   static NpsStruct fromMap(Map<String, dynamic> data) => NpsStruct(
         id: data['id'] as String?,
@@ -139,6 +154,8 @@ class NpsStruct extends BaseStruct {
         type: data['type'] as String?,
         npsVariationsId: data['nps_variations_id'] as String?,
         npsVariations: NpsVariationsStruct.maybeFromMap(data['nps_variations']),
+        secondQuestion: data['second_question'] as String?,
+        responseType: data['response_type'] as String?,
       );
 
   static NpsStruct? maybeFromMap(dynamic data) =>
@@ -157,6 +174,8 @@ class NpsStruct extends BaseStruct {
         'type': _type,
         'nps_variations_id': _npsVariationsId,
         'nps_variations': _npsVariations?.toMap(),
+        'second_question': _secondQuestion,
+        'response_type': _responseType,
       }.withoutNulls;
 
   @override
@@ -208,6 +227,13 @@ class NpsStruct extends BaseStruct {
         'nps_variations': serializeParam(
           _npsVariations,
           ParamType.DataStruct,
+        'second_question': serializeParam(
+          _secondQuestion,
+          ParamType.String,
+        ),
+        'response_type': serializeParam(
+          _responseType,
+          ParamType.String,
         ),
       }.withoutNulls;
 
@@ -270,6 +296,14 @@ class NpsStruct extends BaseStruct {
         npsVariations: deserializeStructParam(
           data['nps_variations'],
           ParamType.DataStruct,
+        secondQuestion: deserializeParam(
+          data['second_question'],
+          ParamType.String,
+          false,
+        ),
+        responseType: deserializeParam(
+          data['response_type'],
+          ParamType.String,
           false,
           structBuilder: NpsVariationsStruct.fromSerializableMap,
         ),
@@ -293,6 +327,8 @@ class NpsStruct extends BaseStruct {
         type == other.type &&
         npsVariationsId == other.npsVariationsId &&
         npsVariations == other.npsVariations;
+        secondQuestion == other.secondQuestion &&
+        responseType == other.responseType;
   }
 
   @override
@@ -309,6 +345,8 @@ class NpsStruct extends BaseStruct {
         type,
         npsVariationsId,
         npsVariations
+        secondQuestion,
+        responseType
       ]);
 }
 
@@ -325,6 +363,8 @@ NpsStruct createNpsStruct({
   String? type,
   String? npsVariationsId,
   NpsVariationsStruct? npsVariations,
+  String? secondQuestion,
+  String? responseType,
 }) =>
     NpsStruct(
       id: id,
@@ -339,4 +379,6 @@ NpsStruct createNpsStruct({
       type: type,
       npsVariationsId: npsVariationsId,
       npsVariations: npsVariations ?? NpsVariationsStruct(),
+      secondQuestion: secondQuestion,
+      responseType: responseType,
     );

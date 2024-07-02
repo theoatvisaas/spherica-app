@@ -1,5 +1,3 @@
-import 'package:spherica/services/reminder_service.dart';
-
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -27,9 +25,6 @@ class RemindersModel extends FlutterFlowModel<RemindersWidget> {
   void initState(BuildContext context) {
     bottomTabModel = createModel(context, () => BottomTabModel());
   }
-
-
-  ReminderManager reminderManager = ReminderManager();
 
   @override
   void dispose() {

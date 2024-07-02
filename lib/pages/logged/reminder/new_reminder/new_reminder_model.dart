@@ -1,6 +1,3 @@
-import 'package:spherica/models/reminder.dart';
-import 'package:spherica/services/reminder_service.dart';
-
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -21,7 +18,6 @@ class NewReminderModel extends FlutterFlowModel<NewReminderWidget> {
 
   final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
-
   // State field(s) for time widget.
   FocusNode? timeFocusNode;
   TextEditingController? timeTextController;
@@ -35,7 +31,6 @@ class NewReminderModel extends FlutterFlowModel<NewReminderWidget> {
   }
 
   DateTime? datePicked;
-
   // State field(s) for title widget.
   FocusNode? titleFocusNode;
   TextEditingController? titleTextController;
@@ -50,11 +45,9 @@ class NewReminderModel extends FlutterFlowModel<NewReminderWidget> {
   // State field(s) for repeatDay widget.
   List<String>? repeatDayValue;
   FormFieldController<List<String>>? repeatDayValueController;
-
   // State field(s) for reapeatHour widget.
   String? reapeatHourValue;
   FormFieldController<String>? reapeatHourValueController;
-
   // State field(s) for use widget.
   FocusNode? useFocusNode;
   TextEditingController? useTextController;
@@ -63,55 +56,7 @@ class NewReminderModel extends FlutterFlowModel<NewReminderWidget> {
     if (val == null || val.isEmpty) {
       return 'Campo obrigatório';
     }
-    return null;
-  }
 
-  final ReminderManager _reminderManager = ReminderManager();
-
-  int _extractNumber(String interval) {
-    final regex = RegExp(r'\d+');
-
-    final matches = regex.allMatches(interval);
-
-    if (matches.isNotEmpty) {
-      return int.parse(matches.first.group(0)!);
-    }
-
-    return 0;
-  }
-
-  int _calculateHourInterval(int repeatTime) {
-    return ((24 / repeatTime) * 60).round();
-  }
-
-  void createReminder() {
-  try {
-      if (formKey.currentState!.validate()) {
-      final timeParts = timeTextController!.text.split(':');
-      final int hour = int.parse(timeParts[0]);
-      final int minute = int.parse(timeParts[1]);
-      final String title = titleTextController!.text;
-      final String description = useTextController!.text;
-      const bool enabled = true;
-
-      Reminder reminder = Reminder(
-        hour: hour,
-        minute: minute,
-        title: title,
-        description: description,
-        enabled: enabled,
-        repeat: reapeatHourValue != null,
-        repeatCount:
-            reapeatHourValue != null ? _extractNumber(reapeatHourValue!) : 0,
-        repeatInterval: reapeatHourValue != null
-            ? _calculateHourInterval(_extractNumber(reapeatHourValue!))
-            : 0,
-      );
-      _reminderManager.createReminder(reminder);
-    }
-  } catch (e) {
-    throw 'Não foi possível criar um lembrete.';
-  }
   }
 
   @override

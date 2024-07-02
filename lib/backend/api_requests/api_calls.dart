@@ -668,6 +668,8 @@ class ChangeNpsNoteCall {
     String? message = '',
     String? type = '',
     String? npsVariationsId = '',
+    String? secondQuestion = '',
+    String? responseType = '',
     String? token = '',
   }) async {
     final baseUrl = NpsGroup.getBaseUrl(
@@ -685,6 +687,9 @@ class ChangeNpsNoteCall {
   "message": "${message}",
   "type": "${type}",
   "nps_variations_id": "${npsVariationsId}"
+  "response_type": "${responseType}",
+  "second_question": "${secondQuestion}",
+  "nps_variations_id": null
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Change Nps Note',

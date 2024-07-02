@@ -265,9 +265,20 @@ class _FeedbackDetailsWidgetState extends State<FeedbackDetailsWidget> {
                                         spreadRadius: 0.0,
                                       )
                                     ],
+                            Align(
+                              alignment: AlignmentDirectional(1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 24.0),
+                                child: Material(
+                                  color: Colors.transparent,
+                                  elevation: 1.0,
+                                  shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.only(
                                       bottomLeft: Radius.circular(0.0),
                                       bottomRight: Radius.circular(16.0),
+                                      bottomLeft: Radius.circular(16.0),
+                                      bottomRight: Radius.circular(0.0),
                                       topLeft: Radius.circular(16.0),
                                       topRight: Radius.circular(16.0),
                                     ),
@@ -281,7 +292,43 @@ class _FeedbackDetailsWidgetState extends State<FeedbackDetailsWidget> {
                                           .override(
                                             fontFamily: 'Inter',
                                             letterSpacing: 0.0,
+                                  child: Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.82,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFF007EFF),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          blurRadius: 4.0,
+                                          color: Color(0x33000000),
+                                          offset: Offset(
+                                            0.0,
+                                            1.0,
                                           ),
+                                          spreadRadius: 0.0,
+                                        )
+                                      ],
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(16.0),
+                                        bottomRight: Radius.circular(0.0),
+                                        topLeft: Radius.circular(16.0),
+                                        topRight: Radius.circular(16.0),
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsets.all(12.0),
+                                      child: Text(
+                                        FFAppState().selectedFeedback.message,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .info,
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -317,6 +364,9 @@ class _FeedbackDetailsWidgetState extends State<FeedbackDetailsWidget> {
                                 FFAppState().selectedFeedback.answer != '')
                               Align(
                                 alignment: AlignmentDirectional(1.0, 0.0),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 24.0),
                                 child: Material(
                                   color: Colors.transparent,
                                   elevation: 1.0,
@@ -324,6 +374,8 @@ class _FeedbackDetailsWidgetState extends State<FeedbackDetailsWidget> {
                                     borderRadius: BorderRadius.only(
                                       bottomLeft: Radius.circular(16.0),
                                       bottomRight: Radius.circular(0.0),
+                                      bottomLeft: Radius.circular(0.0),
+                                      bottomRight: Radius.circular(16.0),
                                       topLeft: Radius.circular(16.0),
                                       topRight: Radius.circular(16.0),
                                     ),
@@ -333,10 +385,12 @@ class _FeedbackDetailsWidgetState extends State<FeedbackDetailsWidget> {
                                         MediaQuery.sizeOf(context).width * 0.82,
                                     decoration: BoxDecoration(
                                       color: Color(0xFF007EFF),
+                                      color: Color(0xFFF2F2F2),
                                       boxShadow: [
                                         BoxShadow(
                                           blurRadius: 4.0,
                                           color: Color(0x33000000),
+                                          color: Color(0x00000014),
                                           offset: Offset(
                                             0.0,
                                             1.0,
@@ -347,6 +401,8 @@ class _FeedbackDetailsWidgetState extends State<FeedbackDetailsWidget> {
                                       borderRadius: BorderRadius.only(
                                         bottomLeft: Radius.circular(16.0),
                                         bottomRight: Radius.circular(0.0),
+                                        bottomLeft: Radius.circular(0.0),
+                                        bottomRight: Radius.circular(16.0),
                                         topLeft: Radius.circular(16.0),
                                         topRight: Radius.circular(16.0),
                                       ),

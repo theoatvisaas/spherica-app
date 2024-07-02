@@ -181,6 +181,8 @@ class _RateExperience2WidgetState extends State<RateExperience2Widget> {
                                       .selectedNps
                                       .npsVariations
                                       .title,
+                                  _model.subjectValue ??=
+                                      FFAppState().selectedNps.secondQuestion,
                                 ),
                                 options: [
                                   'Como foi sua experiência?',
@@ -388,8 +390,23 @@ class _RateExperience2WidgetState extends State<RateExperience2Widget> {
                                 .npsVariations
                                 .description,
                             response: _model.messageTextController.text,
+                          _model.noteNumber = await actions.convertNoteToNumber(
+                            _model.gradeValue,
+                          );
+                          _model.apiNoteResponse =
+                              await NpsGroup.changeNpsNoteCall.call(
                             token: currentAuthenticationToken,
                             type: FFAppState().selectedNps.npsVariations.type,
+                            npsId: FFAppState().selectedNps.id,
+                            note: _model.noteNumber,
+                            title: FFAppState().selectedNps.title,
+                            question: FFAppState().selectedNps.question,
+                            description: FFAppState().selectedNps.description,
+                            clientsId: FFAppState().selectedNps.clientsId,
+                            storesId: FFAppState().selectedNps.storesId,
+                            message: _model.messageTextController.text,
+                            type: FFAppState().selectedNps.type,
+                            secondQuestion: _model.subjectValue,
                           );
 
                           if ((_model.npsVariationsResponse?.succeeded ??
@@ -397,11 +414,25 @@ class _RateExperience2WidgetState extends State<RateExperience2Widget> {
                             _model.noteNumber =
                                 await actions.convertNoteToNumber(
                               _model.gradeValue,
+                          if ((_model.apiNoteResponse?.succeeded ?? true)) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  'Questionário respondido com sucesso!',
+                                  style: TextStyle(
+                                    color: FlutterFlowTheme.of(context).info,
+                                  ),
+                                ),
+                                duration: Duration(milliseconds: 4000),
+                                backgroundColor:
+                                    FlutterFlowTheme.of(context).success,
+                              ),
                             );
                             _model.npsNoteResponse =
                                 await NpsGroup.changeNpsNoteCall.call(
                               note: _model.noteNumber,
                               npsId: FFAppState().selectedNps.id,
+                            _model.npsResponse = await NpsGroup.getNpsCall.call(
                               token: currentAuthenticationToken,
                               title: FFAppState().selectedNps.title,
                               question: FFAppState().selectedNps.question,
@@ -412,6 +443,7 @@ class _RateExperience2WidgetState extends State<RateExperience2Widget> {
                               type: FFAppState().selectedNps.type,
                               npsVariationsId:
                                   FFAppState().selectedNps.npsVariationsId,
+                              clientsId: currentUserData?.client?.id,
                             );
 
                             if ((_model.npsNoteResponse?.succeeded ?? true)) {
@@ -433,6 +465,20 @@ class _RateExperience2WidgetState extends State<RateExperience2Widget> {
                                 token: currentAuthenticationToken,
                                 clientsId: currentUserData?.client?.id,
                               );
+                            FFAppState().nps = [];
+                            setState(() {});
+                            FFAppState().nps = (getJsonField(
+                              (_model.npsResponse?.jsonBody ?? ''),
+                              r'''$''',
+                              true,
+                            )!
+                                    .toList()
+                                    .map<NpsStruct?>(NpsStruct.maybeFromMap)
+                                    .toList() as Iterable<NpsStruct?>)
+                                .withoutNulls
+                                .toList()
+                                .cast<NpsStruct>();
+                            setState(() {});
 
                               FFAppState().nps = [];
                               setState(() {});
@@ -465,6 +511,7 @@ class _RateExperience2WidgetState extends State<RateExperience2Widget> {
                                 ),
                               );
                             }
+                            context.pushNamed('Nps');
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
